@@ -3,6 +3,7 @@
 """
 
 from matplotlib import pyplot as plt 
+from matoplotlib.animation import FuncAnimation
 import csv
 from math import pow
 import random
