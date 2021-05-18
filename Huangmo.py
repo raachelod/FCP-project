@@ -33,8 +33,8 @@ class Simulation:
 
         
         self.popsize = int(self.population_density)
-
-        
+       
+    
         self.days = days
 
         
@@ -92,3 +92,29 @@ def main():
 
 if __name__ == "__main__":
     main()
+class Animation:
+    "Create animation of epidemic"
+    
+    def __init__(self, simulation, duration):
+        self.simulation = simulation
+        self.duration = duration
+        
+        self.figure = plt.figure(figsize=(5,5))
+        self.axes_grid = self.figure.add
+     
+        
+    def show(self):
+        "Run the animation on the screen"
+        animation = FuncAnimation(self.figure, self.update, frames = range(100), init_func = self.init, blit=True, interval=200)
+        plt.show()
+    
+    def init(self):
+        actors = []
+        actors += self.gridanimation.init()
+        return actors
+    
+    def update(self, framenumber):
+        self.simulation.update()
+        actors = []
+        actors += self.gridanimation.update(framenumber)
+        return actors 
