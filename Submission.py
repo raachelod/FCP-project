@@ -4,6 +4,7 @@ Created on Mon May 17 16:23:43 2021
 
 @author: pk20813, vk19682, tt20973, yh20989
 """
+#Written by Finn
 
 PopDen=int(input("please give a value for Population Density between 1 and 10000= "))
 while PopDen>10000:
@@ -152,6 +153,8 @@ while day<timeframe:
 
 Ss.close()
 
+#Written by Chris
+
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
@@ -217,7 +220,7 @@ def plotSus(i):
         values = [float(s) for s in i]
         x2_data.append( values[0] )
         y2_data.append( values[1] )
-    plt.plot(x2_data, y2_data, color = "k", label = "Recovery")
+    plt.plot(x2_data, y2_data, color = "k", label = "Susceptible")
     plt.legend()                
     return
 
@@ -232,6 +235,8 @@ animALL = FuncAnimation(fig, updateALL,
                         interval = 20, blit = True)
 
 plt.show()
+
+#Written by Huangmo & Rachel
 
 from matplotlib import pyplot as plt 
 import csv
@@ -262,8 +267,8 @@ class Simulation:
 
         
         self.popsize = int(self.population_density)
-
-        
+       
+    
         self.days = days
 
         
@@ -321,4 +326,30 @@ def main():
 
 if __name__ == "__main__":
     main()
+class Animation:
+    "Create animation of epidemic"
+    
+    def __init__(self, simulation, duration):
+        self.simulation = simulation
+        self.duration = duration
+        
+        self.figure = plt.figure(figsize=(5,5))
+        self.axes_grid = self.figure.add
+     
+        
+    def show(self):
+        "Run the animation on the screen"
+        animation = FuncAnimation(self.figure, self.update, frames = range(100), init_func = self.init, blit=True, interval=200)
+        plt.show()
+    
+    def init(self):
+        actors = []
+        actors += self.gridanimation.init()
+        return actors
+    
+    def update(self, framenumber):
+        self.simulation.update()
+        actors = []
+        actors += self.gridanimation.update(framenumber)
+        return actors 
 
